@@ -7,10 +7,31 @@ $(function() {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
+    /**
+     * Randomize array element order in-place.
+     * Using Fisher-Yates shuffle algorithm.
+     */
+    var shuffleArray = function(array) {
+        for (var i = array.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
+        return array;
+    }
+
+    var locations = ["July 2014", "August 2014", "September 2014", "October 2014", "November 2014"];
+
+    locations.forEach(function(loc) {
+        $('.fp-gallery-inject').append('<h3 class="fp-section-heading">' + loc + '</h3><div class="fp-gallery-section"></div>');
+    });
+
     $('.fp-gallery-section').each(function() {
         for (var i = 0; i < getRandomInt(2, 5); i++) {
             $(this).append('<div class="row fp-gallery-row"></div>');
         }
+        $(this).append('<div class="row fp-gallery-row-partial"></div>');
     });
 
     $('.fp-gallery-row').each(function() {
@@ -18,4 +39,50 @@ $(function() {
             $(this).append('<div class="col-md-1 fp-gallery-image"><img src="assets/img/placeholder-100x100.gif" width="100%" height="100%" /></div>');
         }
     });
+
+    $('.fp-gallery-row-partial').each(function() {
+        for (var i = 0; i < getRandomInt(3, 12); i++) {
+            $(this).append('<div class="col-md-1 fp-gallery-image"><img src="assets/img/placeholder-100x100.gif" width="100%" height="100%" /></div>');
+        }
+    });
 });
+
++ function($) {
+    'use strict';
+
+    // UPLOAD CLASS DEFINITION
+    // ======================
+
+    var dropZone = document.getElementById('drop-zone');
+    var uploadForm = document.getElementById('js-upload-form');
+
+    var startUpload = function(files) {
+        $('.modal-body .js-upload-finished').show();
+        $('.modal-body .progress').show();
+        console.log(files);
+    }
+
+    uploadForm.addEventListener('submit', function(e) {
+        var uploadFiles = document.getElementById('js-upload-files').files;
+        e.preventDefault();
+        startUpload(uploadFiles);
+    })
+
+    dropZone.ondrop = function(e) {
+        e.preventDefault();
+        this.className = 'upload-drop-zone';
+
+        startUpload(e.dataTransfer.files);
+    }
+
+    dropZone.ondragover = function() {
+        this.className = 'upload-drop-zone drop';
+        return false;
+    }
+
+    dropZone.ondragleave = function() {
+        this.className = 'upload-drop-zone';
+        return false;
+    }
+
+}(jQuery);

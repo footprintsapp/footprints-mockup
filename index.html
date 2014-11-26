@@ -10,7 +10,8 @@
 
     <title>Footprints</title>
 
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="assets/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link href="assets/css/slate.bootstrap.min.css" rel="stylesheet">
 
     <link href="src/footprints.css" rel="stylesheet">
 
@@ -56,9 +57,9 @@
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Upload <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                  <li><a href="#">Pictures</a></li>
-                  <li><a href="#">Videos</a></li>
-                  <li><a href="#">Documents</a></li>
+                  <li><a href="#" data-toggle="modal" data-target="#uploadPicturesModal">Pictures</a></li>
+                  <li><a href="#" data-toggle="modal" data-target="#uploadPicturesModal">Videos</a></li>
+                  <li><a href="#" data-toggle="modal" data-target="#uploadPicturesModal">Documents</a></li>
                   <!-- <li class="divider"></li>
                   <li><a href="#">Separated link</a></li> -->
                 </ul>
@@ -68,7 +69,7 @@
               <div class="form-group">
                 <input type="text" class="form-control" placeholder="Search images">
               </div>
-              <button type="submit" class="btn btn-default">Submit</button>
+              <button type="submit" class="btn btn-default">Search</button>
             </form>
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -86,18 +87,57 @@
         <p class="lead">Safe, secure photo storage that is forever.</p>
       </div> -->
 
+      <div class="fp-gallery-inject"></div>
 
-      <h3 class="fp-section-heading">New York, NY</h3>
-      <div class="fp-gallery-section"></div>
+      <!-- Upload pictures model -->
+      <div class="modal fade" id="uploadPicturesModal" tabindex="-1" role="dialog" aria-labelledby="uploadPicturesModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+              <h4 class="modal-title" id="uploadPicturesModalLabel">Upload Pictures</h4>
+            </div>
+            <div class="modal-body">
+              <!-- Standard Form -->
+              <h4>Select files from your computer</h4>
+              <form action="" method="post" enctype="multipart/form-data" id="js-upload-form">
+                <div class="form-inline">
+                  <div class="form-group">
+                    <input type="file" name="files[]" id="js-upload-files" multiple>
+                  </div>
+                  <button type="submit" class="btn btn-sm btn-primary" id="js-upload-submit">Upload files</button>
+                </div>
+              </form>
 
+              <!-- Drop Zone -->
+              <h4>Or drag and drop files below</h4>
+              <div class="upload-drop-zone" id="drop-zone">
+                Just drag and drop files here
+              </div>
 
-      <h3 class="fp-section-heading">Seattle, WA</h3>
-      <div class="fp-gallery-section"></div>
+              <!-- Progress Bar -->
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                  <span class="sr-only">60% Complete</span>
+                </div>
+              </div>
 
-
-      <h3 class="fp-section-heading">San Francisco, CA</h3>
-      <div class="fp-gallery-section"></div>
-
+              <!-- Upload Finished -->
+              <div class="js-upload-finished">
+                <h3>Processed files</h3>
+                <div class="list-group">
+                  <a href="#" class="list-group-item list-group-item-success"><span class="badge alert-success pull-right">Success</span>image-01.jpg</a>
+                  <a href="#" class="list-group-item list-group-item-success"><span class="badge alert-success pull-right">Success</span>image-02.jpg</a>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+              <button type="button" class="btn btn-primary">Done</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
     </div> <!-- /container -->
 
