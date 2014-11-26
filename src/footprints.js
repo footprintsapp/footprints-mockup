@@ -39,7 +39,7 @@ $(function() {
             $(this).append('<div class="col-md-1 fp-gallery-image"><img src="assets/img/placeholder-100x100.gif" width="100%" height="100%" /></div>');
         }
     });
-    
+
     $('.fp-gallery-row-partial').each(function() {
         for (var i = 0; i < getRandomInt(3, 12); i++) {
             $(this).append('<div class="col-md-1 fp-gallery-image"><img src="assets/img/placeholder-100x100.gif" width="100%" height="100%" /></div>');
