@@ -7,7 +7,21 @@ $(function() {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-    var locations = ["Seattle, WA", "New York, NY", "Boston, MA", "San Francisco, CA", "San Diego, CA", "Los Angeles, CA"];
+    /**
+     * Randomize array element order in-place.
+     * Using Fisher-Yates shuffle algorithm.
+     */
+    var shuffleArray = function(array) {
+        for (var i = array.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
+        return array;
+    }
+
+    var locations = shuffleArray(["Seattle, WA", "New York, NY", "Boston, MA", "San Francisco, CA", "San Diego, CA", "Los Angeles, CA"]);
 
     locations.forEach(function(loc) {
         $('.fp-gallery-inject').append('<h3 class="fp-section-heading">' + loc + '</h3><div class="fp-gallery-section"></div>');
