@@ -57,21 +57,22 @@ $(function() {
     var uploadForm = document.getElementById('js-upload-form');
 
     var startUpload = function(files) {
-        console.log(files)
+        $('.modal-body .js-upload-finished').show();
+        $('.modal-body .progress').show();
+        console.log(files);
     }
 
     uploadForm.addEventListener('submit', function(e) {
         var uploadFiles = document.getElementById('js-upload-files').files;
-        e.preventDefault()
-
-        startUpload(uploadFiles)
+        e.preventDefault();
+        startUpload(uploadFiles);
     })
 
     dropZone.ondrop = function(e) {
         e.preventDefault();
         this.className = 'upload-drop-zone';
 
-        startUpload(e.dataTransfer.files)
+        startUpload(e.dataTransfer.files);
     }
 
     dropZone.ondragover = function() {
