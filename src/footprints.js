@@ -7,6 +7,12 @@ $(function() {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
+    var locations = ["Seattle, WA", "New York, NY", "Boston, MA", "San Francisco, CA", "San Diego, CA", "Los Angeles, CA"];
+
+    locations.forEach(function(loc) {
+        $('.fp-gallery-inject').append('<h3 class="fp-section-heading">' + loc + '</h3><div class="fp-gallery-section"></div>');
+    });
+
     $('.fp-gallery-section').each(function() {
         for (var i = 0; i < getRandomInt(2, 5); i++) {
             $(this).append('<div class="row fp-gallery-row"></div>');
