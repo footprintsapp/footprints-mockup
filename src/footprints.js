@@ -7,20 +7,6 @@ $(function() {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-    /**
-     * Randomize array element order in-place.
-     * Using Fisher-Yates shuffle algorithm.
-     */
-    // var shuffleArray = function(array) {
-    //     for (var i = array.length - 1; i > 0; i--) {
-    //         var j = Math.floor(Math.random() * (i + 1));
-    //         var temp = array[i];
-    //         array[i] = array[j];
-    //         array[j] = temp;
-    //     }
-    //     return array;
-    // }
-
     var globalImageCounter = 1;
 
     var locations = ["July 2014", "August 2014", "September 2014", "October 2014", "November 2014"];
@@ -65,7 +51,6 @@ $(function() {
         }
         $(this).append(partialGalleryRow);
     });
-
 
     // $('.nailthumb-container').nailthumb({
     //     height: '100px'
