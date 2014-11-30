@@ -27,7 +27,7 @@ $(function() {
 
     var getNextImage = function() {
         if (globalImageCounter < 80) {
-            return 'http://footprintsapp.github.io/footprints-img/mockup-scaled/' + globalImageCounter++ + '.JPG';
+            return 'http://footprintsapp.github.io/footprints-img/mockup-scaled/JPEG/' + globalImageCounter++ + '.jpg';
         }
         else {
             return "assets/img/placeholder-100x100.gif";
@@ -35,14 +35,15 @@ $(function() {
     }
 
     var nextThumbnail = function() {
-        var nextThumbnailElement = $(document.createElement('div')).addClass("col-md-1 fp-gallery-image nailthumb-container");
-        var thumbnailImage = $(document.createElement('img'));
-        thumbnailImage.attr({
-            src: getNextImage(),
-            width: "100%",
-            height: "100%"
-        });
-        nextThumbnailElement.append(thumbnailImage);
+        var nextThumbnailElement = $(document.createElement('div')).addClass("col-md-1 fp-gallery-image");
+        // var thumbnailImage = $(document.createElement('img'));
+        // thumbnailImage.attr({
+        //     src: getNextImage(),
+        //     width: "100%",
+        //     height: "100%"
+        // });
+        // nextThumbnailElement.append(thumbnailImage);
+        nextThumbnailElement.css('background-image', 'url(' + getNextImage() + ')');
         return nextThumbnailElement;
     }
 
@@ -66,7 +67,7 @@ $(function() {
     });
 
 
-    $('.nailthumb-container').nailthumb({
-        height: '100px'
-    });
+    // $('.nailthumb-container').nailthumb({
+    //     height: '100px'
+    // });
 });
