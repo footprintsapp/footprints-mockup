@@ -1,8 +1,4 @@
 $(function() {
-    /**
-     * Returns a random integer between min (inclusive) and max (inclusive)
-     * Using Math.round() will give you a non-uniform distribution!
-     */
     var getRandomInt = function(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
@@ -22,13 +18,6 @@ $(function() {
 
     var nextThumbnail = function() {
         var nextThumbnailElement = $(document.createElement('div')).addClass("square fp-gallery-image");
-        // var thumbnailImage = $(document.createElement('img'));
-        // thumbnailImage.attr({
-        //     src: getNextImage(),
-        //     width: "100%",
-        //     height: "100%"
-        // });
-        // nextThumbnailElement.append(thumbnailImage);
         nextThumbnailElement.css('background-image', 'url(' + getNextImage() + ')');
         return nextThumbnailElement;
     }
@@ -51,8 +40,4 @@ $(function() {
         }
         $(this).append(partialGalleryRow);
     });
-
-    // $('.nailthumb-container').nailthumb({
-    //     height: '100px'
-    // });
 });
