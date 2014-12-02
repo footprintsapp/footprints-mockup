@@ -21,7 +21,7 @@ $(function() {
     }
 
     var nextThumbnail = function() {
-        var nextThumbnailElement = $(document.createElement('div')).addClass("col-md-1 fp-gallery-image");
+        var nextThumbnailElement = $(document.createElement('div')).addClass("col-xs-1 col-md-1 fp-gallery-image");
         // var thumbnailImage = $(document.createElement('img'));
         // thumbnailImage.attr({
         //     src: getNextImage(),
