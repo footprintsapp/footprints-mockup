@@ -7,21 +7,31 @@ $(function() {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-    /**
-     * Randomize array element order in-place.
-     * Using Fisher-Yates shuffle algorithm.
-     */
-    var shuffleArray = function(array) {
-        for (var i = array.length - 1; i > 0; i--) {
-            var j = Math.floor(Math.random() * (i + 1));
-            var temp = array[i];
-            array[i] = array[j];
-            array[j] = temp;
-        }
-        return array;
-    }
+    var globalImageCounter = 1;
 
     var locations = ["July 2014", "August 2014", "September 2014", "October 2014", "November 2014"];
+
+    var getNextImage = function() {
+        if (globalImageCounter < 80) {
+            return 'http://footprintsapp.github.io/footprints-img/mockup-scaled/JPEG/' + globalImageCounter++ + '.jpg';
+        }
+        else {
+            return "assets/img/placeholder-100x100.gif";
+        }
+    }
+
+    var nextThumbnail = function() {
+        var nextThumbnailElement = $(document.createElement('div')).addClass("col-md-1 fp-gallery-image");
+        // var thumbnailImage = $(document.createElement('img'));
+        // thumbnailImage.attr({
+        //     src: getNextImage(),
+        //     width: "100%",
+        //     height: "100%"
+        // });
+        // nextThumbnailElement.append(thumbnailImage);
+        nextThumbnailElement.css('background-image', 'url(' + getNextImage() + ')');
+        return nextThumbnailElement;
+    }
 
     locations.forEach(function(loc) {
         $('.fp-gallery-inject').append('<h3 class="fp-section-heading">' + loc + '</h3><div class="fp-gallery-section"></div>');
@@ -29,60 +39,20 @@ $(function() {
 
     $('.fp-gallery-section').each(function() {
         for (var i = 0; i < getRandomInt(2, 5); i++) {
-            $(this).append('<div class="row fp-gallery-row"></div>');
+            var galleryRow = $(document.createElement('div')).addClass("row fp-gallery-row");
+            for (var i = 0; i < 12; i++) {
+                galleryRow.append(nextThumbnail());
+            }
+            $(this).append(galleryRow);
         }
-        $(this).append('<div class="row fp-gallery-row-partial"></div>');
-    });
-
-    $('.fp-gallery-row').each(function() {
-        for (var i = 0; i < 12; i++) {
-            $(this).append('<div class="col-md-1 fp-gallery-image"><img src="assets/img/placeholder-100x100.gif" width="100%" height="100%" /></div>');
-        }
-    });
-
-    $('.fp-gallery-row-partial').each(function() {
+        var partialGalleryRow = $(document.createElement('div')).addClass("row fp-gallery-row-partial");
         for (var i = 0; i < getRandomInt(3, 12); i++) {
-            $(this).append('<div class="col-md-1 fp-gallery-image"><img src="assets/img/placeholder-100x100.gif" width="100%" height="100%" /></div>');
+            partialGalleryRow.append(nextThumbnail());
         }
+        $(this).append(partialGalleryRow);
     });
+
+    // $('.nailthumb-container').nailthumb({
+    //     height: '100px'
+    // });
 });
-
-+ function($) {
-    'use strict';
-
-    // UPLOAD CLASS DEFINITION
-    // ======================
-
-    var dropZone = document.getElementById('drop-zone');
-    var uploadForm = document.getElementById('js-upload-form');
-
-    var startUpload = function(files) {
-        $('.modal-body .js-upload-finished').show();
-        $('.modal-body .progress').show();
-        console.log(files);
-    }
-
-    uploadForm.addEventListener('submit', function(e) {
-        var uploadFiles = document.getElementById('js-upload-files').files;
-        e.preventDefault();
-        startUpload(uploadFiles);
-    })
-
-    dropZone.ondrop = function(e) {
-        e.preventDefault();
-        this.className = 'upload-drop-zone';
-
-        startUpload(e.dataTransfer.files);
-    }
-
-    dropZone.ondragover = function() {
-        this.className = 'upload-drop-zone drop';
-        return false;
-    }
-
-    dropZone.ondragleave = function() {
-        this.className = 'upload-drop-zone';
-        return false;
-    }
-
-}(jQuery);
