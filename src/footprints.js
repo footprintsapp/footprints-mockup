@@ -10,7 +10,7 @@ $(function() {
     var getNextImage = function() {
         var imageObject = {};
 
-        if (globalImageCounter < 80) {
+        if (globalImageCounter < 79) {
             imageObject.thumb = 'http://footprintsapp.github.io/footprints-img/mockup-scaled/JPEG/' + ++globalImageCounter + '.jpg';
             imageObject.full = 'http://footprintsapp.github.io/footprints-img/mockup/' + globalImageCounter + '.JPG';
         }
