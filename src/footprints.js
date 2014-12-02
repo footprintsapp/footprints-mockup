@@ -30,6 +30,7 @@ $(function() {
         // });
         // nextThumbnailElement.append(thumbnailImage);
         nextThumbnailElement.css('background-image', 'url(' + getNextImage() + ')');
+        nextThumbnailElement.css('background-size', 'cover');
         return nextThumbnailElement;
     }
 
