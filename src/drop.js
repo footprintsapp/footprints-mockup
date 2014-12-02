@@ -1,15 +1,17 @@
 + function($) {
     'use strict';
 
-    // UPLOAD CLASS DEFINITION
-    // ======================
-
     var dropZone = document.getElementById('drop-zone');
     var uploadForm = document.getElementById('js-upload-form');
 
     var startUpload = function(files) {
+        for (var i = 0; i < files.length; i++) {
+            $('#upload-file-status-list').append('<a href="#" class="list-group-item list-group-item-success"><span class="badge alert-success pull-right">Success</span>' + files[i].name + '</a>');
+        }
+
         $('.modal-body .js-upload-finished').show();
-        $('.modal-body .progress').show();
+        
+        // $('.modal-body .progress').show();
         console.log(files);
     }
 

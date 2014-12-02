@@ -12,6 +12,7 @@
 
     <link href="assets/css/slate.bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/lightbox.css" rel="stylesheet" />
+    <!-- <link rel="stylesheet" href="assets/css/slimbox2.css" type="text/css" media="screen" /> -->
     <link href="src/footprints.css" rel="stylesheet">
 
     <!--[if lt IE 9]>
@@ -96,15 +97,14 @@
               <!-- Upload Finished -->
               <div class="js-upload-finished">
                 <h3>Processed files</h3>
-                <div class="list-group">
-                  <a href="#" class="list-group-item list-group-item-success"><span class="badge alert-success pull-right">Success</span>image-01.jpg</a>
-                  <a href="#" class="list-group-item list-group-item-success"><span class="badge alert-success pull-right">Success</span>image-02.jpg</a>
+                <div class="list-group" id="upload-file-status-list">
+                  
                 </div>
               </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-              <button type="button" class="btn btn-primary">Done</button>
+              <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button> -->
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Done</button>
             </div>
           </div>
         </div>
@@ -113,10 +113,10 @@
     </div> <!-- /container -->
 
     <script src="assets/js/jquery-2.1.1.min.js"></script>
+    <!-- <script type="text/javascript" src="assets/js/slimbox2.js"></script> -->
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/lightbox.min.js"></script>
 
     <script src="src/footprints.js"></script>
-    <script src="src/drop.js"></script>
   </body>
 </html>
