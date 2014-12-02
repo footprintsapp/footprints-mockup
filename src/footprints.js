@@ -3,7 +3,7 @@ $(function() {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-    var globalImageCounter = 1;
+    var globalImageCounter = 0;
 
     var locations = ["July 2014", "August 2014", "September 2014", "October 2014", "November 2014"];
 
@@ -11,7 +11,7 @@ $(function() {
         var imageObject = {};
 
         if (globalImageCounter < 80) {
-            imageObject.thumb = 'http://footprintsapp.github.io/footprints-img/mockup-scaled/JPEG/' + globalImageCounter++ + '.jpg';
+            imageObject.thumb = 'http://footprintsapp.github.io/footprints-img/mockup-scaled/JPEG/' + ++globalImageCounter + '.jpg';
             imageObject.full = 'http://footprintsapp.github.io/footprints-img/mockup/' + globalImageCounter + '.JPG';
         }
         else {
