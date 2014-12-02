@@ -43,7 +43,7 @@ $(function() {
     });
 
     $('.fp-gallery-section').each(function() {
-        for (var i = 0; i < getRandomInt(2, 5); i++) {
+        for (var i = 0; i < getRandomInt(2, 3); i++) {
             var galleryRow = $(document.createElement('div')).addClass("row fp-gallery-row");
             for (var j = 0; j < 10; j++) {
                 galleryRow.append(nextThumbnail());
