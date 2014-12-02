@@ -15,7 +15,7 @@ $(function() {
             imageObject.full = 'http://footprintsapp.github.io/footprints-img/mockup/' + globalImageCounter + '.JPG';
         }
         else {
-            imageObject.thumb = "assets/img/placeholder-100x100.gif";
+            imageObject.thumb = "assets/img/placeholder-logo.png";
         }
 
         return imageObject;
