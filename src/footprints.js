@@ -45,15 +45,17 @@ $(function() {
     $('.fp-gallery-section').each(function() {
         for (var i = 0; i < getRandomInt(2, 5); i++) {
             var galleryRow = $(document.createElement('div')).addClass("row fp-gallery-row");
-            for (var i = 0; i < 10; i++) {
+            for (var j = 0; j < 10; j++) {
                 galleryRow.append(nextThumbnail());
             }
             $(this).append(galleryRow);
         }
+
         var partialGalleryRow = $(document.createElement('div')).addClass("row fp-gallery-row-partial");
         for (var i = 0; i < getRandomInt(3, 12); i++) {
             partialGalleryRow.append(nextThumbnail());
         }
+
         $(this).append(partialGalleryRow);
     });
 });
