@@ -22,18 +22,25 @@ hr {
 }
 
 .fp-gallery-image {
-  height: 100px;
+  /*height: 100px;*/
   padding-top: 0px;
   padding-bottom: 0px;
   padding-right: 0px;
   padding-left: 0px;
   overflow: hidden;
+
+  background-size: cover;
+  /*background-position:center center;*/
+  background-repeat:no-repeat;
 }
 
-/*.fp-gallery-image-inner {
-  width: 100%;
-  height: 100%;
-}*/
+.square {
+    float: left;
+    position: relative;
+    width: 10%;
+    padding-bottom: 10%; /* = width for a 1:1 aspect ratio */
+    overflow: hidden;
+}
 
 .fp-gallery-section {
   padding-bottom: 35px;
@@ -44,6 +51,10 @@ hr {
   height: 200px;
   border-width: 2px;
   margin-bottom: 20px;
+}
+
+#js-upload-files {
+  color: #ccc;
 }
 
 /* skin.css Style*/
