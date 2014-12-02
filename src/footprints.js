@@ -21,7 +21,7 @@ $(function() {
     }
 
     var nextThumbnail = function() {
-        var nextThumbnailElement = $(document.createElement('div')).addClass("col-xs-1 col-md-1 fp-gallery-image");
+        var nextThumbnailElement = $(document.createElement('div')).addClass("square fp-gallery-image");
         // var thumbnailImage = $(document.createElement('img'));
         // thumbnailImage.attr({
         //     src: getNextImage(),
@@ -40,7 +40,7 @@ $(function() {
     $('.fp-gallery-section').each(function() {
         for (var i = 0; i < getRandomInt(2, 5); i++) {
             var galleryRow = $(document.createElement('div')).addClass("row fp-gallery-row");
-            for (var i = 0; i < 12; i++) {
+            for (var i = 0; i < 10; i++) {
                 galleryRow.append(nextThumbnail());
             }
             $(this).append(galleryRow);
