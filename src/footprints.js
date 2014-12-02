@@ -99,7 +99,7 @@ $(function() {
                 $('#fp-upload-section').append(currentRow);
             }
 
-            var reader = new FileReader();
+            var reader = new FileReader(); // new one each time because otherwise the first image blocks the rest
             reader.onloadend = function(event) {
                 // console.log(event);
                 var dataURL = event.target.result;
