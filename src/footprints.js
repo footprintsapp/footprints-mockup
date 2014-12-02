@@ -16,7 +16,6 @@ $(function() {
         }
         else {
             imageObject.thumb = "assets/img/placeholder-100x100.gif";
-            imageObject.full = "assets/img/placeholder-100x100.gif";
         }
 
         return imageObject;
@@ -25,15 +24,18 @@ $(function() {
     var nextThumbnail = function() {
         var image = getNextImage();
 
-        var imageLightbox = $(document.createElement('a'));
-        imageLightbox.attr('href', image.full);
-        imageLightbox.attr('data-lightbox', 'all-group');
-
         var nextThumbnailElement = $(document.createElement('div')).addClass("square fp-gallery-image");
         nextThumbnailElement.css('background-image', 'url(' + image.thumb + ')');
 
-        imageLightbox.append(nextThumbnailElement);
-        return imageLightbox;
+        if (typeof(image.full) !== 'undefined') {
+            var imageLightbox = $(document.createElement('a'));
+            imageLightbox.attr('href', image.full);
+            imageLightbox.attr('data-lightbox', 'all-group');
+            imageLightbox.append(nextThumbnailElement);
+            nextThumbnailElement = imageLightbox;
+        }
+
+        return nextThumbnailElement;
     }
 
     locations.forEach(function(loc) {
