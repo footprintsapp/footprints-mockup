@@ -53,6 +53,10 @@ hr {
   margin-bottom: 20px;
 }
 
+#js-upload-files {
+  color: #ccc;
+}
+
 /* skin.css Style*/
 .upload-drop-zone {
   color: #ccc;
