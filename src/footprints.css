@@ -28,6 +28,8 @@ hr {
   padding-right: 0px;
   padding-left: 0px;
   overflow: hidden;
+
+  background-size: cover;
 }
 
 /*.fp-gallery-image-inner {
