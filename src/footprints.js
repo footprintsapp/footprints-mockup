@@ -54,7 +54,7 @@ $(function() {
         }
 
         var partialGalleryRow = $(document.createElement('div')).addClass("row fp-gallery-row-partial");
-        for (var i = 0; i < getRandomInt(3, 10); i++) {
+        for (var i = 0; i < getRandomInt(3, imagesPerRow); i++) {
             partialGalleryRow.append(nextThumbnail());
         }
 
