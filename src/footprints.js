@@ -4,6 +4,7 @@ $(function() {
     }
 
     var globalImageCounter = 0;
+    var imagesPerRow = 5;
 
     var locations = ["July 2014", "August 2014", "September 2014", "October 2014", "November 2014"].reverse();
 
@@ -46,7 +47,7 @@ $(function() {
     $('.fp-gallery-section').each(function() {
         for (var i = 0; i < getRandomInt(2, 3); i++) {
             var galleryRow = $(document.createElement('div')).addClass("row fp-gallery-row");
-            for (var j = 0; j < 10; j++) {
+            for (var j = 0; j < imagesPerRow; j++) {
                 galleryRow.append(nextThumbnail());
             }
             $(this).append(galleryRow);
@@ -94,7 +95,7 @@ $(function() {
         for (var i = 0; i < uploadedFiles.length; i++) {
             var cur = uploadedFiles[i];
 
-            if ((i % 10) == 0) { // start a new row
+            if ((i % imagesPerRow) == 0) { // start a new row
                 currentRow = $(document.createElement('div')).addClass("row fp-gallery-row");
                 $('#fp-upload-section').append(currentRow);
             }
