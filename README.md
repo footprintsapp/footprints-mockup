@@ -1,4 +1,4 @@
-[footprints-mockup](http://christopher.su/footprints-mockup/)
+[footprints-mockup](http://footprintsapp.me/)
 =================
 
 ![](http://forthebadge.com/badges/built-with-love.svg) ![](http://forthebadge.com/badges/makes-people-smile.svg)
